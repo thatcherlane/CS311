@@ -10,23 +10,27 @@
 #include <iostream>
 
 Product::Product(){
-
+    _name = "";
+    _sales = 0;
 };
 
 Product::Product(string name, unsigned int sales){
-    
+    _name = name;
+    _sales = sales;
 };
 
 string Product::getName() const {
-    return "";
+//    std::cout << name << "!!!!!!!!!!!!!!!!!!!!!"; 
+    return _name;
+//    return "";
+}
+
+void Product::setName(string name){
+    _name = name;
 }
 
 int Product::getSales() const {
     return 0; 
-}
-
-void Product::setName(string name){
-    
 }
 
 void Product::setSales(int sales){
@@ -61,8 +65,8 @@ bool Product::operator!=(const Product &b) const{
     return false; 
 }
 
-std::ostream & operator<<(std::ostream &, const Product &){
-    return std::cout;
+std::ostream & operator<<(std::ostream &os, const Product &){
+    return os;
 }
 
 

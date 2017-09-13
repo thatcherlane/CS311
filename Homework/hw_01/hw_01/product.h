@@ -15,23 +15,29 @@ class Product{
     public:
         Product();
         Product(string name, unsigned int sales);
+    
         string getName() const;
-        int getSales() const;
         void setName(string name);
+    
+        int getSales() const;
         void setSales(int sales);
+    
         string toString() const;
+    
         Product & operator++();
         Product & operator--();
+    
         Product operator++(int dummy);
         Product operator--(int dummy);
+    
         bool operator==(const Product &b) const;
         bool operator!=(const Product &b) const;
     
     private:
-        string name;
-        unsigned int sales;
+        string _name;
+        unsigned int _sales;
 };
 
-std::ostream & operator<<(std::ostream &, const Product &);
+std::ostream & operator<<(std::ostream &os, const Product &);
 
 #endif /* product_h */
