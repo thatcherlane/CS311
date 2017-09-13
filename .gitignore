@@ -1,6 +1,11 @@
 #Xcode Projects
 *.xcodeproj
 
+#CodeBlocks Projects
+*.cbp
+*.depend
+*.layout
+
 # Prerequisites
 *.d
 
