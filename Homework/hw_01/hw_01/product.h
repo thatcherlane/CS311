@@ -1,9 +1,11 @@
-//
+//  
 //  product.h
-//  hw_01
+//  Thatcher Lane
+//  12 Sep 2017
+//  CS 311 hw_01
 //
-//  Created by Thatcher Lane on 9/11/17.
-//  Copyright © 2017 Thatcher Lane. All rights reserved.
+//  Header for class Product
+//  Product: _name, _sales
 //
 
 #ifndef product_h
@@ -11,7 +13,17 @@
 #include <iostream>
 using std::string;
 
+//  Class Product
+//  Invariants: 0 <= _sales
 class Product{
+    
+        friend bool operator==(const Product &lhs, const Product &rhs);
+        friend bool operator!=(const Product &lhs, const Product &rhs);
+    
+    private:
+        string _name;
+        unsigned int _sales;
+    
     public:
         Product();
         Product(string name, unsigned int sales);
@@ -24,20 +36,20 @@ class Product{
     
         string toString() const;
     
-        Product & operator++();
-        Product & operator--();
+        Product & operator++(); //Pre
+        Product & operator--(); //Pre
     
-        Product operator++(int dummy);
-        Product operator--(int dummy);
+        Product operator++(int dummy); //Post
+        Product operator--(int dummy); //Post
     
-        bool operator==(const Product &b) const;
-        bool operator!=(const Product &b) const;
+        ~Product() = default;
+        Product(const Product & other) = default;
+        Product(Product && other) = default;
+        Product & operator=(const Product & other) = default;
+        Product & operator=(Product && other) = default;
     
-    private:
-        string _name;
-        unsigned int _sales;
 };
 
-std::ostream & operator<<(std::ostream &os, const Product &);
+std::ostream & operator<<(std::ostream &os, const Product &p);
 
 #endif /* product_h */
