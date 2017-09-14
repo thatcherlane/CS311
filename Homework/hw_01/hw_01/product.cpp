@@ -81,8 +81,10 @@ string Product::toString() const {
 //      Sales represented have been increased by one
 //      Return is *this
 Product & Product::operator++(){
-    ++_sales;
-    return *this;
+    
+        ++_sales;
+        return *this;
+    
 }
 
 //  Operator-- [pre]
@@ -108,7 +110,7 @@ Product & Product::operator--(){
 Product Product::operator++(int dummy){
     Product save = *this;
     ++*this;
-    return *this;
+    return save;
 }
 
 //  Operator-- [post]
@@ -119,7 +121,7 @@ Product Product::operator++(int dummy){
 Product Product::operator--(int dummy){
     Product save = *this;
     --*this;
-    return *this;
+    return save;
 }
 
 //  Operator==

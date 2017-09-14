@@ -18,7 +18,6 @@ using std::string;
 class Product{
     
         friend bool operator==(const Product &lhs, const Product &rhs);
-        friend bool operator!=(const Product &lhs, const Product &rhs);
     
     private:
         string _name;
@@ -51,5 +50,6 @@ class Product{
 };
 
 std::ostream & operator<<(std::ostream &os, const Product &p);
+bool operator!=(const Product &lhs, const Product &rhs);
 
 #endif /* product_h */
